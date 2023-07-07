@@ -8,6 +8,12 @@ export const ContainerProduct = styled.div`
   position: relative;
   margin-bottom: 48px;
   background-color: #fff;
+
+  > img {
+    width: 472px;
+    height: 217px;
+    object-fit: cover;
+  }
 `
 
 export const NomeENotaContainer = styled.div`

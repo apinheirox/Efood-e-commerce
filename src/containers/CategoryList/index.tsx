@@ -1,4 +1,5 @@
-import Food from '../../models/Food'
+import { Food } from '../../pages/Home'
+
 import Category from '../../components/Category'
 import * as S from './styles'
 
@@ -14,12 +15,15 @@ const CategoryList = ({ categorys }: Props) => {
           {categorys.map((category) => (
             <Category
               key={category.id}
-              title={category.title}
-              category={category.category}
-              description={category.description}
-              image={category.image}
-              note={category.note}
-              emphasis={category.emphasis}
+              food={{
+                id: category.id,
+                titulo: category.titulo,
+                destacado: category.destacado,
+                tipo: category.tipo,
+                avaliacao: category.avaliacao,
+                descricao: category.descricao,
+                capa: category.capa
+              }}
             />
           ))}
         </S.List>

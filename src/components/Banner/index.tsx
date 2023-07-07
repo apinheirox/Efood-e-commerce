@@ -1,18 +1,17 @@
 import * as S from './styles'
 
-import bgBanner from '../../assets/images/bg-banner.png'
-
 type Props = {
-  category: string
-  title: string
+  capa: string
+  titulo: string
+  tipo: string
 }
 
-const Banner = ({ category, title }: Props) => {
+const Banner = ({ capa, titulo, tipo }: Props) => {
   return (
-    <S.Banner style={{ backgroundImage: `url(${bgBanner})` }}>
+    <S.Banner style={{ backgroundImage: `url(${capa})` }}>
       <div className="container">
-        <S.Category>{category}</S.Category>
-        <S.Title>{title}</S.Title>
+        <S.Category>{tipo}</S.Category>
+        <S.Title>{titulo}</S.Title>
       </div>
     </S.Banner>
   )

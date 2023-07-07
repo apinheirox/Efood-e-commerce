@@ -1,43 +1,39 @@
 import Tag from '../Tag'
-import Button from '../Button'
 import * as S from './styles'
+import Button from '../Button'
+
 import star from '../../assets/images/star.svg'
+import { Food } from '../../pages/Home'
 
 type Props = {
-  title: string
-  emphasis?: string
-  category: string
-  description: string
-  image: string
-  note: string
+  food: Food
 }
 
-const Category = ({
-  title,
-  emphasis,
-  category,
-  description,
-  image,
-  note
-}: Props) => {
+const Category = ({ food }: Props) => {
+  const getDescription = (description: string) => {
+    if (description.length > 210) {
+      return description.slice(0, 207) + '...'
+    }
+  }
+
   return (
     <S.ContainerProduct>
-      {emphasis && <Tag size="big">{emphasis}</Tag>}
-      <img src={image} alt="foto do produto" />
-      <Tag size="small">{category}</Tag>
+      {food.destacado && <Tag size="big">Mais vendido</Tag>}
+      <img src={food.capa} alt="foto do produto" />
+      <Tag size="small">{food.tipo}</Tag>
       <S.NomeENotaContainer>
-        <h3>{title}</h3>
+        <h3>{food.titulo}</h3>
         <div>
-          <span>{note}</span>
+          <span>{food.avaliacao}</span>
           <span>
             <img src={star} alt="estrela" />
           </span>
         </div>
       </S.NomeENotaContainer>
-      <S.Text>{description}</S.Text>
+      <S.Text>{getDescription(food.descricao)}</S.Text>
       <Button
         title="clique aqui para ir para a página do produto"
-        to="/categories"
+        to={`/product/${food.id}`}
       >
         Saiba mais
       </Button>

@@ -5,6 +5,17 @@ export const Banner = styled.div`
   height: 436px;
   background-repeat: no-repeat;
   background-size: cover; //ocupa toda largura disponivel
+  position: relative;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    content: '';
+  }
 `
 
 export const Category = styled.p`
@@ -16,6 +27,8 @@ export const Category = styled.p`
   text-align: left;
   color: #fff;
   padding-top: 55px;
+  position: relative;
+  z-index: 1;
 `
 
 export const Title = styled.p`
@@ -27,4 +40,6 @@ export const Title = styled.p`
   line-height: 38px;
   text-align: left;
   color: #fff;
+  position: relative;
+  z-index: 1;
 `
