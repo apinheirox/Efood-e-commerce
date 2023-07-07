@@ -46,7 +46,7 @@ export const DescriptionProduct = styled.p`
 `
 export const Modal = styled.div`
   position: fixed;
-  top: 490px;
+  top: 0px;
   left: 0;
   width: 100%;
   height: 100%;
@@ -62,6 +62,7 @@ export const Modal = styled.div`
     padding: 32px;
     gap: 24px;
     background-color: ${cores.primaria};
+    top: 300px;
 
     h4 {
       font-size: 18px;
@@ -88,7 +89,7 @@ export const Modal = styled.div`
   }
   .overlay {
     position: absolute;
-    top: -490px;
+    top: 0px;
     left: 0;
     width: 100%;
     height: 100%;

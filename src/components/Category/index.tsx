@@ -18,7 +18,7 @@ const Category = ({ food }: Props) => {
 
   return (
     <S.ContainerProduct>
-      {food.destacado && <Tag size="big">Mais vendido</Tag>}
+      {food.destacado && <Tag size="big">Mais vendidos</Tag>}
       <img src={food.capa} alt="foto do produto" />
       <Tag size="small">{food.tipo}</Tag>
       <S.NomeENotaContainer>

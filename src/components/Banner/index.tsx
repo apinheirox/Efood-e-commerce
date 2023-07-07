@@ -8,7 +8,7 @@ type Props = {
 
 const Banner = ({ capa, titulo, tipo }: Props) => {
   return (
-    <S.Banner style={{ backgroundImage: `url(${capa})` }}>
+    <S.Banner style={{ backgroundImage: `url(${capa})`, objectFit: 'cover' }}>
       <div className="container">
         <S.Category>{tipo}</S.Category>
         <S.Title>{titulo}</S.Title>
