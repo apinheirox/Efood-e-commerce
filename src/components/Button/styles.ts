@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 
 export const ButtonLink = styled(Link)`
   padding: 4px 6px;
@@ -12,4 +12,9 @@ export const ButtonLink = styled(Link)`
   font-size: 14px;
   line-height: 16px;
   text-align: center;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    display: block;
+    margin-top: 55px;
+  }
 `

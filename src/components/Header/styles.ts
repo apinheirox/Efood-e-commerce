@@ -1,10 +1,14 @@
 import styled from 'styled-components'
 
-import { cores } from '../../styles/index'
+import { breakpoints, cores } from '../../styles/index'
 
 export const Header = styled.header`
   height: 384px;
   width: 100%;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    position: relative;
+  }
 
   &.alternative-header {
     height: 186px;
@@ -15,6 +19,10 @@ export const Header = styled.header`
       align-items: center;
       justify-content: space-evenly;
       padding-top: 63px;
+
+      @media (max-width: ${breakpoints.mobile}) {
+        flex-direction: column;
+      }
 
       & > p {
         width: 256px;
@@ -40,11 +48,20 @@ export const Header = styled.header`
         line-height: 21px;
 
         & > a {
-          text-decoration: none;
           color: ${cores.primaria};
         }
       }
     }
+  }
+`
+
+export const LinkCart = styled.a`
+  color: ${cores.primaria};
+
+  @media (max-width: ${breakpoints.mobile}) {
+    position: absolute;
+    top: 27px;
+    left: 100px;
   }
 `
 
@@ -65,5 +82,11 @@ export const DivContent = styled.div`
     line-height: 42px;
     text-align: center;
     color: ${cores.primaria};
+
+    @media (max-width: ${breakpoints.tablet}) {
+      margin-top: 68px;
+      width: 80%;
+      font-size: 24px;
+    }
   }
 `

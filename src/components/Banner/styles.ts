@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { breakpoints } from '../../styles'
 
 export const Banner = styled.div`
   width: 100%;
@@ -42,4 +43,8 @@ export const Title = styled.p`
   color: #fff;
   position: relative;
   z-index: 1;
+
+  @media (max-width: ${breakpoints.mobile}) {
+    width: 100%;
+  }
 `

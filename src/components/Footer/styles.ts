@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 
 export const Footer = styled.footer`
   height: 298px;
@@ -33,4 +33,8 @@ export const TextFooter = styled.p`
   text-align: center;
   color: ${cores.primaria};
   margin-bottom: 40px;
+
+  @media (max-width: ${breakpoints.mobile}) {
+    width: 100%;
+  }
 `

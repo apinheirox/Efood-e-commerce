@@ -1,26 +1,35 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 
-import { Food, Item } from '../../pages/Home'
+import { Item } from '../../pages/Home'
 
 import * as S from './styles'
 import { BtnProduct, cores } from '../../styles'
 
-import pizza from '../../assets/images/pizzaModal.png'
 import close from '../../assets/images/close.png'
 
+import { useGetTypeQuery } from '../../services/api'
+
+import { openModal, closeModal } from '../../store/reducers/modal'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootReducer } from '../../store'
+import { addToCart, openCart } from '../../store/reducers/cart'
+
+export const formataPreco = (preco = 0) => {
+  return new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  }).format(preco)
+}
+
 const Products = () => {
+  const { isOpen } = useSelector((state: RootReducer) => state.modal)
+  const dispatch = useDispatch()
+
   const { id } = useParams()
+  const { data: food } = useGetTypeQuery(id!)
 
-  const [food, setFood] = useState<Food>()
-  const [modalAberto, setModalAberto] = useState(false)
   const [produto, setProduto] = useState<Item>()
-
-  useEffect(() => {
-    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
-      .then((res) => res.json())
-      .then((res) => setFood(res))
-  }, [id])
 
   if (!food?.cardapio) {
     return <h2>carregando</h2>
@@ -32,9 +41,23 @@ const Products = () => {
     }
   }
 
-  const openModal = (item: Item) => {
+  const toOpenModal = (item: Item) => {
     setProduto(item)
-    setModalAberto(true)
+    dispatch(openModal())
+  }
+
+  const toCloseModal = () => {
+    dispatch(closeModal())
+  }
+
+  const toAddCart = () => {
+    if (produto) {
+      dispatch(addToCart(produto))
+      dispatch(openCart())
+      dispatch(closeModal())
+    } else {
+      ;<div>erro</div>
+    }
   }
 
   return (
@@ -53,7 +76,9 @@ const Products = () => {
                         {getDescription(item.descricao)}
                       </S.DescriptionProduct>
                       <BtnProduct
-                        onClick={() => openModal(item)}
+                        onClick={() => {
+                          toOpenModal(item)
+                        }}
                         style={{ backgroundColor: `${cores.secundaria}` }}
                       >
                         Adicionar ao carrinho
@@ -69,22 +94,24 @@ const Products = () => {
         </S.ContainerSection>
       </div>
 
-      <S.Modal className={modalAberto ? 'isVisible' : ''}>
+      <S.Modal className={isOpen ? 'isVisible' : ''}>
         <S.ModalContent className="container">
           <div>
             <S.ImagemPrato src={produto?.foto} alt="imagem do prato" />
           </div>
 
-          <img src={close} alt="fechar" onClick={() => setModalAberto(false)} />
+          <img src={close} alt="fechar" onClick={toCloseModal} />
 
           <div>
             <h4>{produto?.nome}</h4>
-            <p>{produto?.descricao}</p>
+            <S.productDescription>{produto?.descricao}</S.productDescription>
             <p>{produto?.porcao}</p>
-            <BtnProduct>Adicionar ao carrinho - {produto?.preco}</BtnProduct>
+            <BtnProduct onClick={toAddCart}>
+              Adicionar ao carrinho - {formataPreco(produto?.preco)}
+            </BtnProduct>
           </div>
         </S.ModalContent>
-        <div className="overlay" onClick={() => setModalAberto(false)}></div>
+        <div className="overlay" onClick={toCloseModal}></div>
       </S.Modal>
     </>
   )

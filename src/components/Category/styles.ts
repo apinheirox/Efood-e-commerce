@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 
 export const ContainerProduct = styled.div`
   height: 402px;
@@ -9,10 +9,26 @@ export const ContainerProduct = styled.div`
   margin-bottom: 48px;
   background-color: #fff;
 
+  @media (max-width: ${breakpoints.tablet}) {
+    margin-bottom: 246px;
+  }
+
   > img {
     width: 472px;
     height: 217px;
     object-fit: cover;
+    @media (max-width: ${breakpoints.tablet}) {
+      height: 200px;
+      width: 350px;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    height: 200px;
+    width: 274.7px;
   }
 `
 
@@ -54,4 +70,9 @@ export const Text = styled.p`
   color: ${cores.primaria};
   margin-bottom: 16px;
   margin-left: 8px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    height: 88px;
+    width: 256px;
+  }
 `

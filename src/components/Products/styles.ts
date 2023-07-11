@@ -1,10 +1,17 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 
 export const ContainerSection = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   margin-top: 56px;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 16px;
+  }
 `
 
 export const ContainerProduct = styled.div`
@@ -53,6 +60,12 @@ export const Modal = styled.div`
   display: none;
   z-index: 1;
 
+  @media (max-width: ${breakpoints.tablet}) {
+    & > p {
+      width: 45%;
+    }
+  }
+
   &.isVisible {
     display: block;
   }
@@ -63,6 +76,12 @@ export const Modal = styled.div`
     gap: 24px;
     background-color: ${cores.primaria};
     top: 300px;
+
+    @media (max-width: ${breakpoints.tablet}) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
     h4 {
       font-size: 18px;
@@ -98,9 +117,23 @@ export const Modal = styled.div`
 `
 export const ImagemPrato = styled.img`
   max-width: 100%;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    max-width: 44%;
+  }
 `
 
 export const ModalContent = styled.div`
   position: relative;
   z-index: 1;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    flex-direction: column;
+  }
+`
+
+export const productDescription = styled.p`
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 300px;
+  }
 `
