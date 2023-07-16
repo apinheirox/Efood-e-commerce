@@ -1,11 +1,15 @@
-import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, Navigate } from 'react-router-dom'
 
 import * as S from './styles'
+
 import bg from '../../assets/images/bg-hero.png'
 import logo from '../../assets/images/logo.svg'
+
 import { openCart } from '../../store/reducers/cart'
-import { useDispatch, useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
+
+import { usePurchaseMutation } from '../../services/api'
 
 type Props = {
   alternativeStyle?: boolean
@@ -22,17 +26,23 @@ const Header: React.FC<Props> = ({
   const dispatch = useDispatch()
 
   const toOpenCart = () => {
-    dispatch(openCart())
+    if (items.length === 0) {
+      return <Navigate to="/" />
+    } else {
+      dispatch(openCart())
+    }
   }
 
   const headerStyle = alternativeStyle ? 'alternative-header' : 'default-header'
   const additionalParagraph = alternativeContent ? (
-    <S.LinkCart onClick={toOpenCart}>
+    <S.LinkCart title="Clique para abrir o carrinho" onClick={toOpenCart}>
       {items.length} pedido(s) no carrinho
     </S.LinkCart>
   ) : null
   const subtitle = alternativeSubtitle ? (
-    <Link to="/">Restaurantes</Link>
+    <Link title="Clique para voltar para tela inicial" to="/">
+      Restaurantes
+    </Link>
   ) : (
     <div>Viva experiências gastronômicas no conforto da sua casa</div>
   )

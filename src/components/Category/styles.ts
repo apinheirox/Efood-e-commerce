@@ -1,10 +1,10 @@
 import styled from 'styled-components'
-import { breakpoints, cores } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 export const ContainerProduct = styled.div`
   height: 402px;
   width: 474.7px;
-  border: 1px solid ${cores.primaria};
+  border: 1px solid ${colors.primary};
   position: relative;
   margin-bottom: 48px;
   background-color: #fff;
@@ -32,7 +32,7 @@ export const ContainerProduct = styled.div`
   }
 `
 
-export const NomeENotaContainer = styled.div`
+export const NameContainer = styled.div`
   display: flex;
   justify-content: space-between;
 
@@ -42,7 +42,7 @@ export const NomeENotaContainer = styled.div`
     font-weight: bold;
     font-size: 18px;
     line-height: 21px;
-    color: ${cores.primaria};
+    color: ${colors.primary};
     margin: 8px 0 16px 8px;
   }
 
@@ -58,7 +58,7 @@ export const NomeENotaContainer = styled.div`
       font-size: 18px;
       line-height: 21px;
       text-align: center;
-      color: ${cores.primaria};
+      color: ${colors.primary};
     }
   }
 `
@@ -67,7 +67,7 @@ export const Text = styled.p`
   width: 456px;
   font-size: 14px;
   line-height: 22px;
-  color: ${cores.primaria};
+  color: ${colors.primary};
   margin-bottom: 16px;
   margin-left: 8px;
 

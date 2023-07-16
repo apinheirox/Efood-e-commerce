@@ -1,8 +1,11 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+
+import { colors } from '../../styles'
 import { ButtonLink } from '../Button/styles'
 
 import lixeira from '../../assets/images/lixeira.svg'
+
+import InputMask from 'react-input-mask'
 
 export const Overlay = styled.div`
   position: absolute;
@@ -30,7 +33,7 @@ export const CartContainer = styled.div`
 `
 
 export const Sidebar = styled.aside`
-  background-color: ${cores.primaria};
+  background-color: ${colors.primary};
   z-index: 1;
   padding: 40px 16px 0 16px;
   max-width: 360px;
@@ -41,8 +44,8 @@ export const Sidebar = styled.aside`
     max-width: 100%;
     width: 100%;
     margin: 0;
-    background-color: ${cores.secundaria};
-    color: ${cores.primaria};
+    background-color: ${colors.secundary};
+    color: ${colors.primary};
     font-weight: bold;
   }
 `
@@ -58,13 +61,13 @@ export const Prices = styled.p`
 
   span {
     font-size: 12px;
-    color: ${cores.secundaria};
+    color: ${colors.secundary};
   }
 `
 
 export const CartItem = styled.li`
   display: flex;
-  background-color: ${cores.secundaria};
+  background-color: ${colors.secundary};
   padding: 8px;
   position: relative;
   margin-bottom: 16px;
@@ -76,14 +79,14 @@ export const CartItem = styled.li`
     margin-right: 8px;
   }
   h3 {
-    color: ${cores.primaria};
+    color: ${colors.primary};
     font-weight: bold;
     font-size: 16px;
     margin-bottom: 16px;
   }
   span {
     display: block;
-    color: ${cores.primaria};
+    color: ${colors.primary};
     font-size: 14px;
   }
 
@@ -98,4 +101,62 @@ export const CartItem = styled.li`
     right: 8px;
     cursor: pointer;
   }
+`
+
+export const Delivery = styled.div`
+  h3 {
+    color: ${colors.secundary};
+    width: 100%;
+    height: 19px;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 18.75px;
+    margin-bottom: 16px;
+  }
+  label {
+    color: ${colors.secundary};
+  }
+  input {
+    height: 32px;
+    margin: 8px 0;
+    background-color: ${colors.secundary};
+    border: none;
+
+    &.error {
+      border: 3px solid red;
+    }
+  }
+
+  > p {
+    color: ${colors.secundary};
+    font-size: 14px;
+    line-height: 22px;
+    margin-bottom: 24px;
+  }
+`
+
+export const InputDelivery = styled.input`
+  width: 344px;
+  height: 32px;
+  display: block;
+  width: 100%;
+  margin: 8px 0;
+  background-color: ${colors.secundary};
+  border: none;
+
+  &.error {
+    border: 3px solid red;
+  }
+`
+
+export const InputsWithDisplayFlex = styled.div`
+  display: flex;
+  column-gap: 22px;
+`
+
+export const InputNumber = styled(InputMask)`
+  width: 218px;
+`
+export const InputCode = styled(InputMask)`
+  width: 87px;
 `

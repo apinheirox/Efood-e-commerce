@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { breakpoints, cores } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 export const ContainerSection = styled.div`
   display: grid;
@@ -17,7 +17,7 @@ export const ContainerSection = styled.div`
 export const ContainerProduct = styled.div`
   width: 320px;
   height: 338px;
-  background-color: ${cores.primaria};
+  background-color: ${colors.primary};
   margin-bottom: 32px;
 
   & > div {
@@ -74,7 +74,7 @@ export const Modal = styled.div`
     display: flex;
     padding: 32px;
     gap: 24px;
-    background-color: ${cores.primaria};
+    background-color: ${colors.primary};
     top: 300px;
 
     @media (max-width: ${breakpoints.tablet}) {
@@ -126,6 +126,10 @@ export const ImagemPrato = styled.img`
 export const ModalContent = styled.div`
   position: relative;
   z-index: 1;
+
+  > img {
+    cursor: pointer;
+  }
 
   @media (max-width: ${breakpoints.tablet}) {
     flex-direction: column;

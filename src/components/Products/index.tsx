@@ -1,26 +1,19 @@
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
-
-import { Item } from '../../pages/Home'
+import { useDispatch, useSelector } from 'react-redux'
 
 import * as S from './styles'
-import { BtnProduct, cores } from '../../styles'
+import { BtnProduct, colors } from '../../styles'
 
 import close from '../../assets/images/close.png'
 
 import { useGetTypeQuery } from '../../services/api'
 
 import { openModal, closeModal } from '../../store/reducers/modal'
-import { useDispatch, useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
 import { addToCart, openCart } from '../../store/reducers/cart'
-
-export const formataPreco = (preco = 0) => {
-  return new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL'
-  }).format(preco)
-}
+import { parseToBrl } from '../../utils'
+import Loader from '../Loader'
 
 const Products = () => {
   const { isOpen } = useSelector((state: RootReducer) => state.modal)
@@ -32,7 +25,7 @@ const Products = () => {
   const [produto, setProduto] = useState<Item>()
 
   if (!food?.cardapio) {
-    return <h2>carregando</h2>
+    return <Loader />
   }
 
   const getDescription = (descricao: string) => {
@@ -76,10 +69,11 @@ const Products = () => {
                         {getDescription(item.descricao)}
                       </S.DescriptionProduct>
                       <BtnProduct
+                        title={`Cliquei aqui para adicionar ${item.nome} ao carrinho`}
                         onClick={() => {
                           toOpenModal(item)
                         }}
-                        style={{ backgroundColor: `${cores.secundaria}` }}
+                        style={{ backgroundColor: `${colors.secundary}` }}
                       >
                         Adicionar ao carrinho
                       </BtnProduct>
@@ -106,8 +100,11 @@ const Products = () => {
             <h4>{produto?.nome}</h4>
             <S.productDescription>{produto?.descricao}</S.productDescription>
             <p>{produto?.porcao}</p>
-            <BtnProduct onClick={toAddCart}>
-              Adicionar ao carrinho - {formataPreco(produto?.preco)}
+            <BtnProduct
+              title={`Cliquei aqui para adicionar ${produto?.nome} ao carrinho`}
+              onClick={toAddCart}
+            >
+              Adicionar ao carrinho - {parseToBrl(produto?.preco)}
             </BtnProduct>
           </div>
         </S.ModalContent>

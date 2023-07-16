@@ -1,10 +1,10 @@
 import styled from 'styled-components'
-import { breakpoints, cores } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 export const Footer = styled.footer`
   height: 298px;
   width: 100%;
-  background-color: ${cores.secundaria};
+  background-color: ${colors.secundary};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,7 +31,7 @@ export const TextFooter = styled.p`
   font-weight: 400;
   line-height: 12px;
   text-align: center;
-  color: ${cores.primaria};
+  color: ${colors.primary};
   margin-bottom: 40px;
 
   @media (max-width: ${breakpoints.mobile}) {

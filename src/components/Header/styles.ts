@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { breakpoints, cores } from '../../styles/index'
+import { breakpoints, colors } from '../../styles/index'
 
 export const Header = styled.header`
   height: 384px;
@@ -32,7 +32,7 @@ export const Header = styled.header`
         font-weight: bold;
         line-height: 21px;
         text-align: right;
-        color: ${cores.primaria};
+        color: ${colors.primary};
       }
 
       & > h1 {
@@ -48,7 +48,7 @@ export const Header = styled.header`
         line-height: 21px;
 
         & > a {
-          color: ${cores.primaria};
+          color: ${colors.primary};
         }
       }
     }
@@ -56,7 +56,8 @@ export const Header = styled.header`
 `
 
 export const LinkCart = styled.a`
-  color: ${cores.primaria};
+  color: ${colors.primary};
+  cursor: pointer;
 
   @media (max-width: ${breakpoints.mobile}) {
     position: absolute;
@@ -81,7 +82,7 @@ export const DivContent = styled.div`
     font-weight: bold;
     line-height: 42px;
     text-align: center;
-    color: ${cores.primaria};
+    color: ${colors.primary};
 
     @media (max-width: ${breakpoints.tablet}) {
       margin-top: 68px;

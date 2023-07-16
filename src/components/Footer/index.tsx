@@ -1,8 +1,9 @@
+import * as S from './styles'
+
 import logo from '../../assets/images/logo.svg'
 import ig from '../../assets/images/ig.svg'
 import fb from '../../assets/images/fb.svg'
 import tt from '../../assets/images/tt.svg'
-import * as S from './styles'
 
 const Footer = () => {
   return (

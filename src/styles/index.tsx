@@ -1,10 +1,10 @@
 import { createGlobalStyle } from 'styled-components'
 import styled from 'styled-components'
 
-export const cores = {
+export const colors = {
   background: '#FFF8F2',
-  primaria: '#E66767',
-  secundaria: '#FFEBD9'
+  primary: '#E66767',
+  secundary: '#FFEBD9'
 }
 
 export const breakpoints = {
@@ -13,7 +13,7 @@ export const breakpoints = {
   mobile: '450px'
 }
 
-const EstiloGlobal = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
   *{
     padding: 0;
     margin: 0;
@@ -25,7 +25,7 @@ const EstiloGlobal = createGlobalStyle`
   }
 
   body{
-    background-color: ${cores.background};
+    background-color: ${colors.background};
   }
 
   .container {
@@ -42,7 +42,7 @@ export const BtnProduct = styled.button`
   width: 304px;
   height: 24px;
   background-color: #fff;
-  color: ${cores.primaria};
+  color: ${colors.primary};
   border: transparent;
   font-family: Roboto;
   font-size: 14px;
@@ -51,4 +51,4 @@ export const BtnProduct = styled.button`
   cursor: pointer;
 `
 
-export default EstiloGlobal
+export default GlobalStyle

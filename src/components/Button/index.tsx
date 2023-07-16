@@ -1,15 +1,16 @@
 import { ButtonLink } from './styles'
 
 type Props = {
+  type: 'button' | 'submit'
   title: string
   to?: string
   onClick?: () => void
   children: string
 }
 
-const Button = ({ title, to, onClick, children }: Props) => {
+const Button = ({ type, title, to, onClick, children }: Props) => {
   return (
-    <ButtonLink to={to as string} type="button" title={title} onClick={onClick}>
+    <ButtonLink type={type} to={to as string} title={title} onClick={onClick}>
       {children}
     </ButtonLink>
   )

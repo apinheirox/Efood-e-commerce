@@ -1,7 +1,5 @@
-import { Food } from '../../pages/Home'
-
-import Category from '../../components/Category'
 import * as S from './styles'
+import Category from '../../components/Category'
 
 type Props = {
   categorys: Food[]

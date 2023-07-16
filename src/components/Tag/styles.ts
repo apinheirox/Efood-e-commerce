@@ -1,14 +1,14 @@
 import styled from 'styled-components'
 
-import { cores } from '../../styles'
+import { colors } from '../../styles'
 import { Props } from '.'
 
 export const Tag = styled.div<Props>`
   width: ${(props) => (props.size === 'big' ? '121px' : '61px')};
   height: 26px;
-  background-color: ${cores.primaria};
+  background-color: ${colors.primary};
   padding: 6px 4px;
-  color: ${cores.secundaria};
+  color: ${colors.secundary};
   font-size: 12px;
   font-weight: bold;
   line-height: 14px;

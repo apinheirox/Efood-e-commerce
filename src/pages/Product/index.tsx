@@ -2,18 +2,18 @@ import { useParams } from 'react-router-dom'
 
 import Header from '../../components/Header'
 import Banner from '../../components/Banner'
-
 import Footer from '../../components/Footer'
 import Products from '../../components/Products'
 
 import { useGetTypeQuery } from '../../services/api'
+import Loader from '../../components/Loader'
 
 const Product = () => {
   const { id } = useParams()
   const { data: food } = useGetTypeQuery(id!)
 
   if (!food) {
-    return <h3>Carregand....</h3>
+    return <Loader />
   }
 
   return (
@@ -23,7 +23,7 @@ const Product = () => {
         alternativeContent={true}
         alternativeSubtitle={true}
       />
-      <Banner capa={food.capa} tipo={food.tipo} titulo={food.titulo} />
+      <Banner banner={food.capa} type={food.tipo} title={food.titulo} />
       <Products />
       <Footer />
     </>

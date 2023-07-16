@@ -1,9 +1,8 @@
 import Tag from '../Tag'
-import * as S from './styles'
 import Button from '../Button'
+import * as S from './styles'
 
 import star from '../../assets/images/star.svg'
-import { Food } from '../../pages/Home'
 
 type Props = {
   food: Food
@@ -21,7 +20,7 @@ const Category = ({ food }: Props) => {
       {food.destacado && <Tag size="big">Mais vendidos</Tag>}
       <img src={food.capa} alt="foto do produto" />
       <Tag size="small">{food.tipo}</Tag>
-      <S.NomeENotaContainer>
+      <S.NameContainer>
         <h3>{food.titulo}</h3>
         <div>
           <span>{food.avaliacao}</span>
@@ -29,9 +28,10 @@ const Category = ({ food }: Props) => {
             <img src={star} alt="estrela" />
           </span>
         </div>
-      </S.NomeENotaContainer>
+      </S.NameContainer>
       <S.Text>{getDescription(food.descricao)}</S.Text>
       <Button
+        type="button"
         title="clique aqui para ir para a página do produto"
         to={`/product/${food.id}`}
       >
