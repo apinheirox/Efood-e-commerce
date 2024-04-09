@@ -1,14 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, Navigate } from 'react-router-dom'
-
 import * as S from './styles'
-
 import bg from '../../assets/images/bg-hero.png'
 import logo from '../../assets/images/logo.svg'
-
 import { openCart } from '../../store/reducers/cart'
 import { RootReducer } from '../../store'
-
 import { usePurchaseMutation } from '../../services/api'
 
 type Props = {

@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-
 import { breakpoints, colors } from '../../styles/index'
 
 export const Header = styled.header`

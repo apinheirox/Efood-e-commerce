@@ -1,10 +1,7 @@
 import styled from 'styled-components'
-
 import { colors } from '../../styles'
 import { ButtonLink } from '../Button/styles'
-
 import lixeira from '../../assets/images/lixeira.svg'
-
 import InputMask from 'react-input-mask'
 
 export const Overlay = styled.div`

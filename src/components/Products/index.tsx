@@ -1,14 +1,10 @@
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-
 import * as S from './styles'
 import { BtnProduct, colors } from '../../styles'
-
 import close from '../../assets/images/close.png'
-
 import { useGetTypeQuery } from '../../services/api'
-
 import { openModal, closeModal } from '../../store/reducers/modal'
 import { RootReducer } from '../../store'
 import { addToCart, openCart } from '../../store/reducers/cart'

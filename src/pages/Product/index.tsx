@@ -1,10 +1,8 @@
 import { useParams } from 'react-router-dom'
-
 import Header from '../../components/Header'
 import Banner from '../../components/Banner'
 import Footer from '../../components/Footer'
 import Products from '../../components/Products'
-
 import { useGetTypeQuery } from '../../services/api'
 import Loader from '../../components/Loader'
 

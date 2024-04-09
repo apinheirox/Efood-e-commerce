@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { breakpoints } from '../../styles'
-
 export const Banner = styled.div`
   width: 100%;
   height: 436px;

@@ -1,6 +1,5 @@
 import * as S from './styles'
 import Category from '../../components/Category'
-
 type Props = {
   categorys: Food[]
 }

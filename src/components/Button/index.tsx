@@ -1,5 +1,4 @@
 import { ButtonLink } from './styles'
-
 type Props = {
   type: 'button' | 'submit'
   title: string

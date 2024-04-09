@@ -1,5 +1,4 @@
 import * as S from './styles'
-
 export type Props = {
   size: 'small' | 'big'
   children: string

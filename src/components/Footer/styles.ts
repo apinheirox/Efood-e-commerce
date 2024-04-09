@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { breakpoints, colors } from '../../styles'
-
 export const Footer = styled.footer`
   height: 298px;
   width: 100%;

@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { breakpoints, colors } from '../../styles'
-
 export const ContainerProduct = styled.div`
   height: 402px;
   width: 474.7px;

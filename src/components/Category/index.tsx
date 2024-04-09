@@ -1,7 +1,6 @@
 import Tag from '../Tag'
 import Button from '../Button'
 import * as S from './styles'
-
 import star from '../../assets/images/star.svg'
 
 type Props = {

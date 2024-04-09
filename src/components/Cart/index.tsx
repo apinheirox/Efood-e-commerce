@@ -3,10 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import InputMask from 'react-input-mask'
-
 import Button from '../Button'
 import * as S from './styles'
-
 import { usePurchaseMutation } from '../../services/api'
 import { RootReducer } from '../../store'
 import { closeCart, removeToCart, clearCart } from '../../store/reducers/cart'

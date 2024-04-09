@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { breakpoints } from '../../styles'
-
 export const Container = styled.section`
   margin-top: 80px;
 `
